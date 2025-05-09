@@ -104,7 +104,7 @@ export default function Header() {
         <div className="flex items-center">
           <Link href="/" className="mr-4 sm:mr-8 cursor-pointer flex flex-col items-center">
             <p className="text-xl sm:text-3xl font-extrabold tracking-tighter">
-              <span className="text-zoop-blue/80 text-[var(--zoop-blue)]">ZOOP</span> ZOOP
+              <span className="bg-gradient-to-r from-[var(--zoop-blue)] to-[var(--zoop-blue-light)] bg-clip-text text-transparent">ZOOP</span> ZOOP
             </p>
             {/* <p className="text-sm text-gray-500">아파트 청약 정보는 &apos;줍줍&apos;</p> */}
           </Link>
@@ -132,7 +132,7 @@ export default function Header() {
                 로그인 
               </Link>
             )}
-            <Link href="https://walla.my/v/jmGi5KblaB0pekmTaJyr" className="bg-[var(--zoop-blue)] hover:bg-[var(--zoop-blue-light)] text-white font-semibold rounded-md px-4 py-2 text-sm transition-colors ease-in-out cursor-pointer">
+            <Link href="https://walla.my/v/jmGi5KblaB0pekmTaJyr" className="bg-gradient-to-r from-[var(--zoop-blue)] to-[var(--zoop-blue-light)] hover:bg-gradient-to-r hover:from-[var(--zoop-blue-light)] hover:to-[var(--zoop-blue-light)] text-white font-semibold rounded-md px-4 py-2 text-sm transition-colors transition-1sease-in-out cursor-pointer">
               청약 알림받기
             </Link>
           </div>

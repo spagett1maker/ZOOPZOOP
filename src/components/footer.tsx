@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="sm:col-span-2 md:col-span-5">
             <p className="text-sm mb-3">Contact</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight mb-2">
-              <span className="text-[var(--zoop-blue)]">ZOOP</span> ZOOP
+              <span className="bg-gradient-to-r from-[var(--zoop-blue)] to-[var(--zoop-blue-light)] bg-clip-text text-transparent">ZOOP</span> ZOOP
             </h2>
             <p className="text-sm text-gray-700 mb-6 sm:mb-10">아파트 청약 정보는 &apos;줍줍&apos;</p>
             <Link
