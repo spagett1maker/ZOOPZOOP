@@ -201,7 +201,7 @@ export default function House() {
                     <thead>
                       <tr className="bg-[var(--zoop-gray)]/30">
                         <th className="text-left px-6 py-2 font-medium text-gray-700 border-b border-gray-100">공급/전용(㎡)</th>
-                        <th className="text-left px-6 py-2 font-medium text-gray-700 border-b border-gray-100">분양/총세대</th>
+                        {/* <th className="text-left px-6 py-2 font-medium text-gray-700 border-b border-gray-100">분양/총세대</th> */}
                         <th className="text-left px-6 py-2 font-medium text-gray-700 border-b border-gray-100">분양가</th>
                       </tr>
                     </thead>
@@ -209,9 +209,9 @@ export default function House() {
                       {subdivision.size?.map((property, index) => (
                         <tr key={index} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors">
                           <td className="px-6 py-3 text-gray-700">{property.type}</td>
-                          <td className="px-6 py-3 text-gray-700">
+                          {/* <td className="px-6 py-3 text-gray-700">
                             {property.units}/{property.units}세대
-                          </td>
+                          </td> */}
                           <td className="px-6 py-3 text-gray-700">{formatPrice(property.price)}</td>
                         </tr>
                       ))}
