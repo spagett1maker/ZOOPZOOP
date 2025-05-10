@@ -53,12 +53,12 @@ export function HouseCard({ house }: { house: Subdivision }) {
         </div>
         <div className="flex gap-2 py-[2px]">
           {house.tags?.[0] && (
-            <div className="flex items-center gap-1 text-[12px] bg-[var(--zoop-gray)] text-[var(--zoop-blue)] font-medium rounded-lg py-1 px-2">
+            <div className="flex items-center gap-1 text-[12px] bg-[var(--zoop-blue-light)]/10 text-[var(--zoop-blue)] font-medium rounded-lg py-1 px-2">
               {/* <House className="w-4 h-4 text-[#068C6D]" />  */} 즉시입주
             </div>
           )}
           {house.tags?.[1] ? (
-            <div className="flex items-center gap-1 text-[12px] bg-[var(--zoop-gray)] text-[var(--zoop-blue)] font-medium rounded-lg py-1 px-2">
+            <div className="flex items-center gap-1 text-[12px] bg-[var(--zoop-blue-light)]/10 text-[var(--zoop-blue)] font-medium rounded-lg py-1 px-2">
               {/* <House className="w-4 h-4 text-[#068C6D]" /> 전매가능 */} 전매가능
             </div>
           ) : (
@@ -67,7 +67,7 @@ export function HouseCard({ house }: { house: Subdivision }) {
             </div>
           )}
           {house.tags?.[2] && (
-            <div className="flex items-center gap-1 text-[12px] bg-[var(--zoop-gray)] text-[var(--zoop-blue)] font-medium rounded-lg py-1 px-2">
+            <div className="flex items-center gap-1 text-[12px] bg-[var(--zoop-blue-light)]/10 text-[var(--zoop-blue)] font-medium rounded-lg py-1 px-2">
               {/* <House className="w-4 h-4 text-[#068C6D]" /> 다주택 가능 */} 분양가 상한제
             </div>
           )}

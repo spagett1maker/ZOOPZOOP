@@ -41,9 +41,9 @@ export default function BrandAboutSection() {
 
             {/* Content paragraphs with better spacing and readability */}
             <div className=" text-gray-600 tracking-tight leading-[1.8] sm:leading-[2.5] text-sm sm:text-base">
-              물가 상승, 대출 규제 강화, 건축비 상승으로 인한 분양가 상승 등 개별 소비자들은 내 집 마련이 어려워 지고 있습니다.
+              <p className="hidden sm:block">물가 상승, 대출 규제 강화, 건축비 상승으로 인한 분양가 상승 등 개별 소비자들은 내 집 마련이 어려워 지고 있습니다.</p>
               <br className="hidden sm:block"/>
-              뿐만 아니라 전세 사기, 어려운 청약 제도, 시시각각 변하는 부동산 정책과 금융 정책 등 부동산 시장은 소비자들의 신뢰를 잃어가고 있습니다.
+              <p className="hidden sm:block">뿐만 아니라 전세 사기, 어려운 청약 제도, 시시각각 변하는 부동산 정책과 금융 정책 등 부동산 시장은 소비자들의 신뢰를 잃어가고 있습니다.</p>
               <br className="hidden sm:block"/>
               그러나 집은 우리 모두에게 필요한 자산입니다.
               <br className="hidden sm:block"/>

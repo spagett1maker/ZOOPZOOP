@@ -120,7 +120,7 @@ export default function Header() {
             </Link>
           </nav>
           <div className="hidden md:flex items-center">
-            {user ? (
+            {/* {user ? (
               <button onClick={() => {
                 console.log("logout")
                 signOut()
@@ -131,7 +131,7 @@ export default function Header() {
               <Link href="/login" className=" hover:bg-black text-black/90 hover:text-white font-medium border border-black mr-3 rounded-md px-4 py-2 text-sm transition-colors ease-in-out cursor-pointer">
                 로그인 
               </Link>
-            )}
+            )} */}
             <Link href="https://walla.my/v/jmGi5KblaB0pekmTaJyr" className="bg-gradient-to-r from-[var(--zoop-blue)] to-[var(--zoop-blue-light)] hover:bg-gradient-to-r hover:from-[var(--zoop-blue-light)] hover:to-[var(--zoop-blue-light)] text-white font-semibold rounded-md px-4 py-2 text-sm transition-colors transition-1sease-in-out cursor-pointer">
               청약 알림받기
             </Link>

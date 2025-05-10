@@ -1,6 +1,6 @@
 export type Price_by_unit = {
   type: string; // ex) 104A/74A
-  units: number; // ex) 82
+  //units: number; // ex) 82
   price: number; // ex) 750000
 };
 
@@ -20,6 +20,7 @@ export type Price_by_unit = {
   },
 }
 */
+
 
 export type Risk = {
   "전매제한 여부": boolean | null;

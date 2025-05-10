@@ -1,4 +1,5 @@
 
+import { Link } from 'lucide-react'
 import Image from 'next/image'
 export default function CTASectionWithImage() {
   return (
@@ -21,7 +22,7 @@ export default function CTASectionWithImage() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-0 sm:px-4 py-14 sm:py-28">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
+          <h2 className="text-2xl sm:text-5xl font-bold text-white mb-6 leading-tight tracking-tight">
             한 걸음 더 가까워지는 내 집, <br className="block sm:hidden"/><span className="text-[var(--zoop-blue)]">줍줍</span>이 함께합니다.
           </h2>
 

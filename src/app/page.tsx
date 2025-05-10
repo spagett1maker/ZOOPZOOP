@@ -12,8 +12,8 @@ import { supabase } from '@/lib/supabase';
 import { Subdivision } from '@/types/type';
 
 export default function Home() {
-  const [majorRegion, setMajorRegion] = useState("서울")
-  const [subRegion, setSubRegion] = useState("강남/서초")
+  const [majorRegion, setMajorRegion] = useState("처음")
+  const [subRegion, setSubRegion] = useState("")
   const [showAllSubRegions, setShowAllSubRegions] = useState(true)
   const [subdivisions, setSubdivisions] = useState<Subdivision[]>([]);
   const [loading, setLoading] = useState(true)
@@ -127,6 +127,16 @@ export default function Home() {
         if (!showAllSubRegions) {
           query = query.eq('address_category', subRegion);
         }
+        if (majorRegion !== "처음") {
+          query = query.eq('area', majorRegion);
+        }
+
+        // if (!showAllSubRegions && subRegion) {
+        //   query = query.eq('address_category', subRegion);
+        // }
+        // if (!showAllSubRegions && majorRegion) {
+        //   query = query.eq('area', majorRegion);
+        // }
 
         const { data, error } = await query;
 
@@ -174,7 +184,9 @@ export default function Home() {
   const handleMajorRegionChange = (region: string) => {
     setMajorRegion(region)
     setSubRegion(subRegionsMap[region][0]) // Set first sub-region as default
-    setShowAllSubRegions(false) // Reset show all flag when changing major region
+    //setShowAllSubRegions(false) // Reset show all flag when changing major region
+    setShowAllSubRegions(true)
+
   }
 
   const handleSubRegionChange = (region: string) => {
@@ -222,7 +234,7 @@ export default function Home() {
         {/* Title and Mobile Filter Button */}
         <div className="max-w-7xl mx-auto px-4 pb-4 flex justify-between items-center">
           <h1 className="text-xl sm:text-2xl font-bold">
-            {majorRegion} {showAllSubRegions ? "전체" : getDisplayLocation()} 부동산
+            {majorRegion === "처음" ? "" : majorRegion} {showAllSubRegions ? "전체" : getDisplayLocation()} 부동산
           </h1>
           <button
             className="md:hidden flex items-center gap-1 bg-gray-100 rounded-full px-3 py-1.5 text-sm"
@@ -283,7 +295,7 @@ export default function Home() {
                 {/* Sub Regions */}
                 <div className="w-full min-h-0 md:w-2/3 bg-white h-full border-[1.5] border-gray-50 overflow-hidden">
                   <div className="flex justify-between items-center py-2.5 px-4 border-b border-gray-100">
-                    <span className="text-lg font-medium">{majorRegion}</span>
+                    <span className="text-lg font-medium">{majorRegion === "처음" ? "서울" : majorRegion}</span>
                     <button
                       className={`text-sm flex items-center text-gray-600 hover:text-gray-900 transition-colors ${showAllSubRegions ? "font-bold" : ""}`}
                       onClick={handleShowAllClick}
@@ -292,7 +304,7 @@ export default function Home() {
                     </button>
                   </div>
                   <div className="max-h-[300px] sm:max-h-[336px] overflow-y-auto">
-                    {subRegionsMap[majorRegion]?.map((region) => (
+                    {(subRegionsMap[majorRegion] ?? subRegionsMap["서울"]).map((region) => (
                       <button
                         key={region}
                         className={`w-full text-left px-5 py-3.5 text-sm transition-all duration-200 hover:bg-gray-50 ${
@@ -328,7 +340,7 @@ export default function Home() {
           {/* Property Listings */}
           <div className="flex-1 mt-6 md:mt-0 pb-8">
             {/* Mobile Upload Button */}
-            <div className="md:hidden relative h-[100px] w-full overflow-hidden rounded-lg group mb-3">
+            {/* <div className="md:hidden relative h-[100px] w-full overflow-hidden rounded-lg group mb-3">
               <Link href="https://walla.my/v/K9IViOO4mtIYwEBNvZ8h" className="absolute inset-0 z-30" />
               <Image 
                 src="/side_upload.png"
@@ -340,7 +352,7 @@ export default function Home() {
               <div className="absolute inset-0 z-20 flex items-center justify-center">
                 <p className="text-white text-base font-semibold">분양 광고 문의</p>
               </div>
-            </div>
+            </div> */}
             
             {loading ? (
               <div className="flex justify-center items-center h-64">
@@ -351,7 +363,7 @@ export default function Home() {
                 <p className="text-lg text-gray-500">해당 지역에 매물이 없습니다.</p>
               </div>
             ) : (
-              <div className="grid grid-cols-3 gap-3 sm:gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6">
                 {subdivisions.map((house) => (
                   <HouseCard key={house.id} house={house} />
                 ))}

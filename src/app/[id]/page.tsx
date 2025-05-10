@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation"
 import Image from "next/image"
 import { useState, useEffect } from "react"
-import { ChevronRight, MessageCircle } from "lucide-react"
+import { ChevronRight, MessageCircle, CircleCheck} from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import MapWithMarker from "@/components/map-with-marker"
@@ -122,12 +122,12 @@ export default function House() {
               <h2 className="text-lg font-bold mb-2">필수 체크리스트</h2>
               <p className="text-sm text-gray-600 mb-4">분양 시 꼭 확인해야하는 요소들을 모아놨어요</p>
 
-              <div className="bg-green-50 p-4 rounded-lg mb-6 flex items-center">
+              <div className="bg-[#BAD6EB]/30 p-4 rounded-lg mb-6 flex items-center">
                 <div className="w-6 h-6 rounded-full flex items-center justify-center mr-2">
-                  <span className="">✅</span>
+                  <span className="text-[var(--zoop-blue)]"><CircleCheck className="w-4 h-4" /></span>
                 </div>
                 <div>
-                  <p className="font-medium text-sm text-green-800">아파트 분양 시 아래 항목들을 꼭 확인하세요!</p>
+                  <p className="font-medium text-sm text-[var(--zoop-blue)]">아파트 분양 시 아래 항목들을 꼭 확인하세요!</p>
                 </div>
               </div>
 
@@ -135,40 +135,52 @@ export default function House() {
                 <div className="flex justify-between items-center py-2 border-gray-100">
                   <div className="font-medium">전매 제한 여부</div>
                   {subdivision.risk?.["전매제한 여부"] ? (
-                      <button className="bg-orange-50 text-orange-700 text-xs px-3 py-1 rounded-full">전매 제한 되어있어요 ({subdivision.risk["전매제한 기간"]})</button>
+                      <button className="bg-red-50 text-red-400  text-xs px-3 py-1 rounded-full">전매 제한 되어있어요 ({subdivision.risk["전매제한 기간"]})</button>
                     ) : (
-                      <button className="bg-green-50 text-green-700 text-xs px-3 py-1 rounded-full">전매 가능해요</button>
+                      <button className="bg-green-50/ text-green-700/ bg-[var(--zoop-gray)] text-[var(--zoop-blue)] text-xs px-3 py-1 rounded-full">전매 가능해요</button>
                   )}
+                </div>
+
+                <div className="flex justify-between items-center py-2 ">
+                  <p className="text-sm text-gray-600 mb-4">
+                    분양받은 주택이나 분양권을 일정 기간 동안 다른 사람에게 매매하거나 양도하지 못하도록 하는 것을 말해요.
+                  </p>
                 </div>
 
                 <div className="flex justify-between items-center py-2 border-gray-100">
                   <div className="font-medium">실거주 의무 여부</div>
                   {subdivision.risk?.["실거주 의무 여부"] ? (
-                      <button className="bg-orange-50 text-orange-700 text-xs px-3 py-1 rounded-full">실거주 의무 있어요 ({subdivision.risk["실거주 의무 기간"]})</button>
+                      <button className="bg-red-50 text-red-400 text-xs px-3 py-1 rounded-full">실거주 의무 있어요 ({subdivision.risk["실거주 의무 기간"]})</button>
                     ) : (
-                      <button className="bg-green-50 text-green-700 text-xs px-3 py-1 rounded-full">실거주 의무 없어요</button>
+                      <button className="bg-[var(--zoop-blue-light)]/10 text-[var(--zoop-blue)] text-xs px-3 py-1 rounded-full">실거주 의무 없어요</button>
                   )}
+                </div>
+
+                <div className="flex justify-between items-center py-2 ">
+                  <p className="text-sm text-gray-600 mb-4">
+                    분양가 상한제를 적용받은 아파트 분양계약자가 입주 후 일정 기간 동안 해당 아파트에 거주하도록 하는 것을 말해요.
+                  </p>
                 </div>
                 
 
-                <div className="flex justify-between items-center pt-2 pb-3 border-b border-gray-100">
+                {/* <div className="flex justify-between items-center pt-2 pb-3 border-b border-gray-100">
                   <div className="font-medium">규제 지역 여부</div>
                   {subdivision.risk?.["규제 지역 여부"] ? (
                       <button className="bg-orange-50 text-orange-700 text-xs px-3 py-1 rounded-full">규제 지역이에요</button>
                     ) : (
                       <button className="bg-green-50 text-green-700 text-xs px-3 py-1 rounded-full">규제 지역이 아니에요</button>
                   )}
-                </div>
+                </div> */}
 
                 <div className="flex justify-between items-center py-3 border-b border-gray-100">
                   <div className="font-medium">계약금 비율</div>
                   <button className=" text-sm px-3 py-1 rounded-full">{subdivision.risk?.["계약금 비율"]}%</button>
                 </div>
 
-                <div className="flex justify-between items-center py-3 border-b border-gray-100">
+                {/* <div className="flex justify-between items-center py-3 border-b border-gray-100">
                   <div className="font-medium">역세권</div>
                   <button className=" text-sm px-3 py-1 rounded-full">{subdivision.risk?.["역세권"]}</button>
-                </div>
+                </div> */}
 
                 <div className="flex justify-between items-center py-3 border-b border-gray-100">
                   <div className="font-medium">착공일</div>
@@ -179,6 +191,35 @@ export default function House() {
                   <div className="font-medium">학군</div>
                   <button className=" text-sm px-3 py-1 rounded-full">{subdivision.risk?.["학군"]}</button>
                 </div>
+              </div>
+
+              <div className="w-full mx-auto pt-6">
+                <h2 className="text-xl font-bold text-[var(--zoop-blue)] mb-4">분양가</h2>
+
+                <div className=" overflow-hidden">
+                  <table className="w-full border-collapse text-base">
+                    <thead>
+                      <tr className="bg-[var(--zoop-gray)]/30">
+                        <th className="text-left px-6 py-2 font-medium text-gray-700 border-b border-gray-100">공급/전용(㎡)</th>
+                        <th className="text-left px-6 py-2 font-medium text-gray-700 border-b border-gray-100">분양/총세대</th>
+                        <th className="text-left px-6 py-2 font-medium text-gray-700 border-b border-gray-100">분양가</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {subdivision.size?.map((property, index) => (
+                        <tr key={index} className="border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors">
+                          <td className="px-6 py-3 text-gray-700">{property.type}</td>
+                          <td className="px-6 py-3 text-gray-700">
+                            {property.units}/{property.units}세대
+                          </td>
+                          <td className="px-6 py-3 text-gray-700">{formatPrice(property.price)}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="text-right text-sm text-gray-500 mt-2">※ 위 분양가는 타입별 최고가 기준입니다.</div>
               </div>
             </div>
           </div>
@@ -222,10 +263,6 @@ export default function House() {
                     <td className="py-2 font-medium">{subdivision.is_price_limit ? "가능" : "불가능"}</td>
                   </tr>
                   <tr className="border-b border-gray-100">
-                    <td className="py-2 text-gray-500">면적별 제공 타입</td>
-                    <td className="py-2 font-medium">{subdivision.size?.map(size => `${size.type} ${size.units}m²`).join(", ")}</td>
-                  </tr>
-                  <tr className="border-b border-gray-100">
                     <td className="py-2 text-gray-500">투기과열지구</td>
                     <td className="py-2 font-medium">{subdivision.is_hot_market ? "투기과열지구" : "투기과열지구 아님"}</td>
                   </tr>
@@ -249,7 +286,7 @@ export default function House() {
                     <td className="py-2 text-gray-500">공공주택 특별법 적용 여부</td>
                     <td className="py-2 font-medium">{subdivision.is_public_housing_special_law ? "공공주택 특별법 적용" : "공공주택 특별법 적용 아님"}</td>
                   </tr>
-                  <tr className="border-b border-gray-100">
+                  {/* <tr className="border-b border-gray-100">
                     <td className="py-2 text-gray-500">건폐율</td>
                     <td className="py-2 font-medium">{subdivision.building_coverage_ratio}</td>
                   </tr>
@@ -257,7 +294,7 @@ export default function House() {
                   <tr className="border-b border-gray-100">
                     <td className="py-2 text-gray-500">용적율</td>
                     <td className="py-2 font-medium">{subdivision.floor_area_ratio}</td>
-                  </tr>
+                  </tr> */}
                   
 
                 </tbody>
@@ -293,7 +330,7 @@ export default function House() {
             
 
             <div className="mt-8">
-              <h2 className="text-lg font-bold mb-4">시행/시공/대행/신탁 정보</h2>
+              <h2 className="text-lg font-bold mb-4">시행/시공 정보</h2>
               <table className="w-full text-sm text-gray-500">
                 <tbody>
                   <tr className="border-b border-gray-100">
