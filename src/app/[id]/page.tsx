@@ -191,6 +191,16 @@ export default function House() {
                   <div className="font-medium">학군</div>
                   <button className=" text-sm px-3 py-1 rounded-full">{subdivision.risk?.["학군"]}</button>
                 </div>
+
+                <div className="flex justify-between items-center py-3 border-b border-gray-100">
+                  <div className="font-medium">단지 내 커뮤니티 시설</div>
+                  <button className=" text-sm px-3 py-1 rounded-full">{subdivision.communityes?.join(", ")}</button>
+                </div>
+
+                <div className="flex justify-between items-center py-3 border-b border-gray-100">
+                  <div className="font-medium">편의시설</div>
+                  <button className=" text-sm px-3 py-1 rounded-full">{subdivision.amenities?.join(", ")}</button>
+                </div>
               </div>
 
               <div className="w-full mx-auto pt-6">

@@ -85,4 +85,6 @@ export type Subdivision = {
   risk: Risk | null; // 위험 태그 (주택 소유 여부, 주택 소유 여부, 주택 소유 여부)
   // Images
   images: string[] | null;
+
+  open_chat: string | null; // 오픈채팅 링크
 };
