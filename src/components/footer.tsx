@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 md:gap-8">
           {/* Left section */}
-          <div className="sm:col-span-2 md:col-span-5">
+          <div className="sm:col-span-2 md:col-span-7">
             <p className="text-sm mb-3">Contact</p>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold leading-tight mb-2">
               <span className="bg-gradient-to-r from-[var(--zoop-blue)] to-[var(--zoop-blue-light)] bg-clip-text text-transparent">ZOOP</span> ZOOP
@@ -23,7 +23,7 @@ export default function Footer() {
           </div>
 
           {/* Middle section - Navigation */}
-          <div className="sm:col-span-1 md:col-span-2 mt-8 sm:mt-0">
+          {/* <div className="sm:col-span-1 md:col-span-2 mt-8 sm:mt-0">
             <p className="font-medium mb-4 text-sm">Navigation</p>
             <ul className="space-y-3 sm:space-y-4 text-sm">
               <li>
@@ -47,14 +47,14 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Right section - App & Company Info */}
           <div className="sm:col-span-1 md:col-span-5 text-sm mt-8 sm:mt-0">
-            <div className="mb-6">
-              <p className="font-medium mb-4">Download Our App</p>
+            <div className="mb-8 pt-4">
+              <p className="font-medium mb-4">Navigation</p>
               <div className="flex gap-4">
-                <Link
+                {/* <Link
                   href="#"
                   className="w-full flex items-center justify-between border border-gray-200 rounded-lg p-3 hover:bg-gray-100 transition-colors active:bg-gray-200"
                 >
@@ -67,7 +67,29 @@ export default function Footer() {
                 >
                   <span>Google Play</span>
                   <ArrowUpRight className="h-4 w-4" />
-                </Link>
+                </Link> */}
+                <ul className="space-x-3 sm:space-x-4 text-sm flex flex-row justify-between w-full">
+                  <li>
+                    <Link href="/" className="hover:underline underline-offset-4 inline-block py-1">
+                      집 보러가기
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/service" className="hover:underline underline-offset-4 inline-block py-1">
+                      서비스 소개
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="https://zoopzoop.channel.io/home" className="hover:underline underline-offset-4 inline-block py-1">
+                      문의하기
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/login" className="hover:underline underline-offset-4 inline-block py-1">
+                      로그인
+                    </Link>
+                  </li>
+                </ul>
               </div>
             </div>
 
@@ -82,12 +104,12 @@ export default function Footer() {
                   {/* <p>통신판매업 신고번호: -</p> */}
                 </div>
                 <div className="space-y-1">
-                  <p>사업장 소재지 주소: 경기도 용인시 수지구 만현로</p>
+                  <p>사업장 소재지: 서울특별시 강남구 역삼로 172 5층</p>
                   <p>전화번호: 0504-0810-8746</p>
                   <p>
                     이메일:{" "}
-                    <a href="mailto:contact@beavershouse.com" className="hover:underline">
-                      contact@beavershouse.com
+                    <a href="mailto:contact@zoopzoop.homes" className="hover:underline">
+                      contact@zoopzoop.homes
                     </a>
                   </p>
                 </div>
