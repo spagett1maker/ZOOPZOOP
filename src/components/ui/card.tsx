@@ -43,7 +43,7 @@ export function HouseCard({ house }: { house: Subdivision }) {
         </div>
         <div className="relative">
           <div className="flex text-base">
-            <div className="">{house.size?.[0]?.type ? `${house.size[0].type}(${house.size[0].units}세대) ~` : '면적 정보 없음'}</div>
+            <div className="">{house.size?.[0]?.type ? `${house.size[0].type} ~` : '면적 정보 없음'}</div>
           </div>
           <div className="flex text-base">
             <div className="">{house.up_floor}층</div>
