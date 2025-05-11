@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --zoop-blue: #3074a0;
-  --zoop-blue-light: #67A0d0;
+  --zoop-blue: #090c9d;
+  --zoop-blue-light: #3066be;
   --zoop-moonlight: #E1E2E1;
   --zoop-gray: #E7Ecef;
 }
