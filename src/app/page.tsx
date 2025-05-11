@@ -21,6 +21,7 @@ export default function Home() {
   const [error, setError] = useState<string | null>(null);
 
   const [isFilterOpen, setIsFilterOpen] = useState(false)
+  const [visibleCount, setVisibleCount] = useState(9)
 
   // Major regions in Korea
   const majorRegions = ["서울", "경기", "인천", "강원", "경상", "전라", "충청", "제주"]
@@ -142,6 +143,7 @@ export default function Home() {
 
         if (error) throw error;
         setSubdivisions(data || []);
+        setVisibleCount(9); // 지역 변경 시 초기화
         console.log(data)
       } catch (err) {
         setError(err instanceof Error ? err.message : '데이터를 불러오는 중 오류가 발생했습니다.');
@@ -363,11 +365,24 @@ export default function Home() {
                 <p className="text-lg text-gray-500">해당 지역에 매물이 없습니다.</p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6">
-                {subdivisions.map((house) => (
-                  <HouseCard key={house.id} house={house} />
-                ))}
-              </div>
+              <>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6">
+                  {subdivisions.slice(0, visibleCount).map((house) => (
+                    <HouseCard key={house.id} house={house} />
+                  ))}
+                </div>
+                {subdivisions.length > visibleCount && (
+                  <div className="flex justify-center mt-6">
+                    <button
+                      className="px-6 py-2 rounded-full bg-white text-black border border-gray-300 font-semibold hover:bg-gray-900 hover:text-white transition-colors"
+                      onClick={() => setVisibleCount((prev) => prev + 9)}
+                      aria-label="더 많은 매물 보기"
+                    >
+                      더보기
+                    </button>
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>

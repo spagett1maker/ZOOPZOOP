@@ -171,7 +171,9 @@ export default function HouseClient({ subdivision }: HouseClientProps) {
 
             <div className="mb-2">
               <h1 className="text-2xl font-bold">
-                <span className="text-[var(--zoop-blue)]">분양중</span> {formatPrice(subdivision.price || 0)} ~ {formatPrice(subdivision.size?.[subdivision.size.length - 1]?.price || 0)}
+                <span className="text-[var(--zoop-blue)] sm:pr-2">분양중</span> 
+                <br className="block sm:hidden"/>
+                {formatPrice(subdivision.price || 0)} ~ {formatPrice(subdivision.size?.[subdivision.size.length - 1]?.price || 0)}
               </h1>
             </div>
 
@@ -261,13 +263,24 @@ export default function HouseClient({ subdivision }: HouseClientProps) {
               </table>
             </div>
 
-            <div className="flex gap-6">
+            {/* <div className="flex gap-6">
               <Link href="https://walla.my/v/jmGi5KblaB0pekmTaJyr" className="w-full text-center bg-[var(--zoop-blue)] cursor-pointer hover:bg-[var(--zoop-blue-light)] text-white py-3 rounded-lg mt-6 font-medium">
                 관심 고객 등록하기
               </Link>
               <button className="bg-none text-black py-2 rounded-lg mt-6 font-medium">
                 <MessageCircle className="stroke-[1.5] w-6 h-6" />
               </button>
+            </div> */}
+            <div className="flex gap-6/ gap-3">
+              <Link href={subdivision.open_chat || ""} className="w-full text-center bg-[var(--zoop-blue)] cursor-pointer hover:bg-[var(--zoop-blue-light)] text-white py-3 rounded-lg mt-6 font-medium">
+                {subdivision.title} 채팅하기
+              </Link>
+              {/* <button className="bg-none text-black py-2 rounded-lg mt-6 font-medium">
+                <MessageCircle className="stroke-[1.5] w-6 h-6" />
+              </button> */}
+              <Link href={subdivision.open_chat || ""} className="w-full text-center bg-[var(--zoop-blue)]/ cursor-pointer hover:bg-[var(--zoop-blue-light)] text-[var(--zoop-blue)] hover:text-white border border-[var(--zoop-blue)] py-3 rounded-lg mt-6 font-medium transition-colors duration-300">
+                관심 고객 등록하기
+              </Link>
             </div>
           </div>
         </div>

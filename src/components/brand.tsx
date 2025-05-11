@@ -47,7 +47,7 @@ export default function BrandAboutSection() {
               <br className="hidden sm:block"/>
               그러나 집은 우리 모두에게 필요한 자산입니다.
               <br className="hidden sm:block"/>
-              줍줍의 서비스는 “험난한 부동산 시장의 등대”가 되고자합니다. 시시각각 변화하는 제도를 지속적으로 반영해 맞춤 분석을 제공합니다.
+              줍줍의 서비스는 &quot;험난한 부동산 시장의 등대&quot;가 되고자합니다. 시시각각 변화하는 제도를 지속적으로 반영해 맞춤 분석을 제공합니다.
               <br className="hidden sm:block"/>
               이를 통해 개별 소비자들이 부동산 시장에서 경쟁력을 극대화하고 위험을 회피할 수 있도록 도움을 드리고자 노력하고 있습니다. 
             </div>
@@ -70,7 +70,10 @@ export default function BrandAboutSection() {
               <p className="text-gray-600 text-sm sm:text-lg mb-5 sm:mb-6">
                 어렵고 힘들지만 어른이 된다는 건 그런 거니까요, 어른이 되느라 고생한 당신의 정착과 독립을 응원합니다!
               </p>
-              <button
+              <a
+                href="https://walla.my/v/jmGi5KblaB0pekmTaJyr"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center text-[var(--zoop-blue)] font-medium hover:text-[var(--zoop-blue-light)] transition-colors cursor-pointer"
                 style={{
                   textShadow: "0 1px 2px rgba(249, 115, 22, 0.2)",
@@ -81,7 +84,7 @@ export default function BrandAboutSection() {
                   className="w-4 h-4 ml-1"
                   style={{ filter: "drop-shadow(1px 1px 1px rgba(249, 115, 22, 0.3))" }}
                 />
-              </button>
+              </a>
             </div>
           </div>
         </div>
