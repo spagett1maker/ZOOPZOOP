@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import { useState } from "react"
-import { ChevronRight, MessageCircle, CircleCheck } from "lucide-react"
+import { ChevronRight, CircleCheck } from "lucide-react"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
 import MapWithMarker from "@/components/map-with-marker"
