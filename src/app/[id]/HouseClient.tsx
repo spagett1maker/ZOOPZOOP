@@ -278,7 +278,7 @@ export default function HouseClient({ subdivision }: HouseClientProps) {
               {/* <button className="bg-none text-black py-2 rounded-lg mt-6 font-medium">
                 <MessageCircle className="stroke-[1.5] w-6 h-6" />
               </button> */}
-              <Link href={subdivision.open_chat || ""} className="w-full text-center bg-[var(--zoop-blue)]/ cursor-pointer hover:bg-[var(--zoop-blue-light)] text-[var(--zoop-blue)] hover:text-white border border-[var(--zoop-blue)] py-3 rounded-lg mt-6 font-medium transition-colors duration-300">
+              <Link href="https://walla.my/v/jmGi5KblaB0pekmTaJyr" className="w-full text-center bg-[var(--zoop-blue)]/ cursor-pointer hover:bg-[var(--zoop-blue-light)] text-[var(--zoop-blue)] hover:text-white border border-[var(--zoop-blue)] py-3 rounded-lg mt-6 font-medium transition-colors duration-300">
                 관심 고객 등록하기
               </Link>
             </div>
