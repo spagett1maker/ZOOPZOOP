@@ -333,7 +333,7 @@ export default function Home() {
               />
               <div className="absolute inset-0 bg-black opacity-50 z-10 rounded-lg" />
               <div className="absolute inset-0 z-20 flex items-center justify-center">
-                <p className="text-white text-base font-semibold">분양 광고문의</p>
+                <p className="text-white text-base font-semibold">온라인 대행문의</p>
               </div>
             </div>
             
