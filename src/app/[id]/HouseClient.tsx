@@ -273,7 +273,7 @@ export default function HouseClient({ subdivision }: HouseClientProps) {
             </div> */}
             <div className="flex flex-col sm:flex-row gap-6/ sm:gap-3">
               <Link href={subdivision.open_chat || ""} className="text-sm sm:text-base w-full text-center bg-[var(--zoop-blue)] cursor-pointer hover:bg-[var(--zoop-blue-light)] text-white py-3 rounded-lg mt-6 font-medium">
-                {subdivision.title} 채팅하기
+                이 아파트 고민 들어보기
               </Link>
               {/* <button className="bg-none text-black py-2 rounded-lg mt-6 font-medium">
                 <MessageCircle className="stroke-[1.5] w-6 h-6" />
