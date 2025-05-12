@@ -2,7 +2,7 @@
 
 :root {
   --zoop-blue: #33ADFF;
-  --zoop-blue-light: #3066be;
+  --zoop-blue-light:rgb(15, 159, 255);
   --zoop-moonlight: #E1E2E1;
   --zoop-gray: #E7Ecef;
 }
