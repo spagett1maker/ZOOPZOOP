@@ -117,10 +117,10 @@ export default function HouseClient({ subdivision }: HouseClientProps) {
                   <button className=" text-sm px-3 py-1 rounded-full">{subdivision.risk?.["계약금 비율"]}%</button>
                 </div>
 
-                <div className="flex justify-between items-center py-3 border-b border-gray-100">
+                {/* <div className="flex justify-between items-center py-3 border-b border-gray-100">
                   <div className="font-medium">착공일</div>
                   <button className=" text-sm px-3 py-1 rounded-full">{subdivision.risk?.["착공일"]}</button>
-                </div>
+                </div> */}
 
                 <div className="flex justify-between items-center py-3 border-b border-gray-100">
                   <div className="font-medium">학군</div>
@@ -171,8 +171,8 @@ export default function HouseClient({ subdivision }: HouseClientProps) {
 
             <div className="mb-2">
               <h1 className="text-2xl font-bold">
-                <span className="text-[var(--zoop-blue)] sm:pr-2">분양중</span> 
-                <br className="block sm:hidden"/>
+                {/* <span className="text-[var(--zoop-blue)] sm:pr-2">분양중</span> 
+                <br className="block sm:hidden"/> */}
                 {formatPrice(subdivision.price || 0)} ~ {formatPrice(subdivision.size?.[subdivision.size.length - 1]?.price || 0)}
               </h1>
             </div>
