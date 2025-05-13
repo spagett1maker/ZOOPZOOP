@@ -7,9 +7,11 @@ import { useState } from 'react'
 import { supabase } from "@/lib/supabase-client"
 import { useRouter } from "next/navigation"
 
+interface Props {
+  id: string
+}
 
-export default function PropertyImageUploadPage({ params }: { params: { id: string } }) {
-  const { id } = params
+export default function PropertyImageUploadPageClient({ id }: Props) {
   const [images, setImages] = useState<UploadedImage[]>([])
   const [submitting, setSubmitting] = useState(false)
   const router = useRouter()
