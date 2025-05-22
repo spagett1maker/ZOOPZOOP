@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 interface Subdivision {
   id: string
-  updated_at?: string // subdivision 테이블에 수정일 컬럼이 있다면 반영
+  created_at?: string // subdivision 테이블에 수정일 컬럼이 있다면 반영
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -16,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   let subdivisions: Subdivision[] = []
   try {
-    const res = await fetch(`${supabaseUrl}/rest/v1/subdivisions?select=id,updated_at`, {
+    const res = await fetch(`${supabaseUrl}/rest/v1/subdivisions?select=id,created_at`, { 
       headers: {
         apikey: supabaseKey,
       },
@@ -44,7 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       .filter((item) => !!item.id)
       .map((item) => ({
         url: `${baseUrl}/${item.id}`,
-        lastModified: item.updated_at ? new Date(item.updated_at) : new Date(),
+        lastModified: item.created_at ? new Date(item.created_at) : new Date(),
       })),
   ]
 }
