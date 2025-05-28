@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { ChevronRight, X, Filter } from "lucide-react"
+import { ChevronRight, X, Filter, Search } from "lucide-react"
 import { HouseCard } from "@/components/ui/card"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
@@ -22,6 +22,8 @@ export default function Home() {
 
   const [isFilterOpen, setIsFilterOpen] = useState(false)
   const [visibleCount, setVisibleCount] = useState(9)
+
+  const [searchQuery, setSearchQuery] = useState('');
 
   // Major regions in Korea
   const majorRegions = ["서울", "경기", "인천", "강원", "경상", "전라", "충청", "제주"]
@@ -215,6 +217,19 @@ export default function Home() {
     }
   }
 
+  const filteredSubdivisions = subdivisions.filter((item) => {
+    const keyword = searchQuery.trim().toLowerCase();
+    if (!keyword) return true;
+  
+    return (
+      item.title?.toLowerCase().includes(keyword) ||
+      item.address?.toLowerCase().includes(keyword) ||
+      item.description?.toLowerCase().includes(keyword)
+    );
+  });
+  
+  
+
   if (error) return <div>오류: {error}</div>;
 
 
@@ -222,6 +237,70 @@ export default function Home() {
     <>
       <Header />
       <div className="min-h-screen bg-white/ bg-[#FDFDFC] pt-16 px-3 sm:px-6">
+
+      <div className="max-w-7xl mx-auto px-4 py-4">
+        <div className="flex items-center">
+          {/* <div className="relative">
+            <button className="flex items-center bg-gray-100 rounded-full px-4 py-2 mr-2">
+              <span className="mr-1">{getDisplayLocation()}</span>
+              <ChevronDown className="h-4 w-4" />
+            </button>
+          </div> */}
+
+          <div className="flex-1 relative">
+            <div className="flex items-center border border-gray-300 rounded-full overflow-hidden px-1">
+              <div className="flex-1 px-4">
+                <input 
+                  type="text" 
+                  placeholder="관심가는 매물을 찾아보세요" 
+                  className="w-full py-2 outline-none"   
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+              <button className="bg-gray-100 p-3 rounded-full">
+                <Search className="h-5 w-5 text-gray-500" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Category Tags */}
+        <div className="flex flex-wrap gap-2 mt-3 text-sm text-gray-700 px-4">
+          {/* <button className="px-3 py-1 rounded-full hover:bg-gray-100">태그</button> */}
+          <button className="rounded-full hover:bg-gray-100">
+            <div className="flex items-center gap-1 text-[12px] bg-green-100 text-green-600 hover:bg-green-200/80 transition-colors ease-in-out font-medium rounded-lg py-1 px-2">
+              즉시입주
+            </div>
+          </button>
+          <button className="rounded-full hover:bg-gray-100">
+            <div className="flex items-center gap-1 text-[12px] bg-[var(--zoop-blue-light)]/10 text-[var(--zoop-blue)] font-medium rounded-lg py-1 px-2">
+              전매가능
+            </div>
+          </button>
+          <button className="rounded-full hover:bg-gray-100">
+            <div className="flex items-center gap-1 text-[12px] bg-red-100 hover:bg-red-200/80 transition-colors ease-in-out text-red-400 font-medium rounded-lg py-1 px-2">
+              전매제한
+            </div>
+          </button>
+          <button className="rounded-full hover:bg-gray-100">
+            <div className="flex items-center gap-1 text-[12px] bg-gray-200/80 text-gray-600 hover:bg-gray-300/80 transition-colors ease-in-out font-medium rounded-lg py-1 px-2">
+              분양가 상한제
+            </div>
+          </button>
+          <button className="rounded-full hover:bg-gray-100">
+            <div className="flex items-center gap-1 text-[12px] bg-purple-100 text-purple-500 hover:bg-purple-200/80 transition-colors ease-in-out font-medium rounded-lg py-1 px-2">
+              신혼주택
+            </div>
+          </button>
+          <button className="rounded-full hover:bg-gray-100">
+            <div className="flex items-center gap-1 text-[12px] bg-yellow-200 text-yellow-600 hover:bg-yellow-300/80 transition-colors ease-in-out font-medium rounded-lg py-1 px-2">
+              공공지원 
+            </div>
+          </button>
+        </div>
+      </div>
+
         {/* Breadcrumb */}
         <div className="pt-6 max-w-7xl mx-auto px-4 py-2 flex items-center text-sm">
           <a href="#" className="text-gray-500">
@@ -360,23 +439,22 @@ export default function Home() {
               <div className="flex justify-center items-center h-64">
                 <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-900"></div>
               </div>
-            ) : subdivisions.length === 0 ? (
+            ) : filteredSubdivisions.length === 0 ? (
               <div className="text-center py-12">
-                <p className="text-lg text-gray-500">해당 지역에 매물이 없습니다.</p>
+                <p className="text-lg text-gray-500">검색 결과가 없습니다.</p>
               </div>
             ) : (
               <>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-6">
-                  {subdivisions.slice(0, visibleCount).map((house) => (
+                  {filteredSubdivisions.slice(0, visibleCount).map((house) => (
                     <HouseCard key={house.id} house={house} />
                   ))}
                 </div>
-                {subdivisions.length > visibleCount && (
+                {filteredSubdivisions.length > visibleCount && (
                   <div className="flex justify-center mt-6">
                     <button
                       className="px-6 py-2 rounded-full bg-white text-black border border-gray-300 font-semibold hover:bg-gray-900 hover:text-white transition-colors"
                       onClick={() => setVisibleCount((prev) => prev + 9)}
-                      aria-label="더 많은 매물 보기"
                     >
                       더보기
                     </button>
