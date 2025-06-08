@@ -122,7 +122,7 @@ export default function Footer() {
         {/* Copyright and Terms */}
         <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-gray-200 text-xs sm:text-sm flex flex-col sm:flex-row justify-between gap-4">
           <p>&copy; {new Date().getFullYear()} ZOOP ZOOP. All rights reserved.</p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-10">
             <Link href="/policy/terms" className="hover:underline underline-offset-2">
               이용약관
             </Link>
