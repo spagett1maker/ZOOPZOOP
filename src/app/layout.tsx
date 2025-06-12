@@ -65,6 +65,18 @@ export default function RootLayout({
           integrity={"!!!integridy!!!"}
           crossOrigin='anonymous'
         ></Script>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-VQG98P2GEG"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-VQG98P2GEG');
+          `}
+        </Script>
         <Analytics />
         <SpeedInsights />
         <AuthProvider>
